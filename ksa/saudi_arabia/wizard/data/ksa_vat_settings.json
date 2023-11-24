@@ -3,6 +3,11 @@
         "type": "Sales Account",
         "accounts": [
             {
+                "title": "Standard rated Sales 15%",
+                "item_tax_template": "KSA VAT 15%",
+                "account": "VAT 15%"
+            },
+            {
                 "title": "Standard rated Sales",
                 "item_tax_template": "KSA VAT 5%",
                 "account": "VAT 5%"
@@ -22,6 +27,11 @@
     {
         "type": "Purchase Account",
         "accounts": [
+            {
+                "title": "Standard rated domestic purchases 15%",
+                "item_tax_template": "KSA VAT 15%",
+                "account": "VAT 15%"
+            },
             {
                 "title": "Standard rated domestic purchases",
                 "item_tax_template": "KSA VAT 5%",

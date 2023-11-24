@@ -9,9 +9,9 @@ from ksa import __version__ as version
 setup(
 	name="ksa",
 	version=version,
-	description="Regional Compliance app for Saudi Arabia",
-	author="8848 Digital LLP",
-	author_email="contact@8848digital.com",
+	description="KSA VAT settings for Saudi Arabia",
+	author="ERPGulf https://www.ERPGulf.com Courtesy: forked from AhmadPak & 8848Digital",
+	author_email="support@ERPGulf.com",
 	packages=find_packages(),
 	zip_safe=False,
 	include_package_data=True,

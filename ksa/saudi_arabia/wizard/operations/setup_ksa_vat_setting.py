@@ -5,6 +5,12 @@ import frappe
 
 def create_ksa_vat_setting(company):
 	"""On creation of first company. Creates KSA VAT Setting"""
+	
+	"""Check KSA VAT setting already configured for this company"""		
+	if len((frappe.get_all('KSA VAT Setting', {'company': company}))):
+		return
+ 
+ 
 	company = frappe.get_doc("Company", company)
 
 	file_path = os.path.join(os.path.dirname(__file__), "..", "data", "ksa_vat_settings.json")
