@@ -21,3 +21,16 @@
 
 ## Note 
    This app was included as a part of ERPNext upto Version 14. We have separated this app out of ERPNext to improve modulatiry. This ensures that users will only have code that is required. 
+
+## Note 
+   Tested compatibility with ERPNext Version 15 . If you face any issue with this app, please contact support@ERPGulf.com
+
+   For Phase-2 implementation of Zatca- please use our app https://github.com/ERPGulf/saudi-phase2-api
+
+   Please Visit our website for regular update https://www.erpgulf.com/
+
+
+## License 
+   MIT
+   Courtesy:
+   forked from AhmadPak & 8848Digital
