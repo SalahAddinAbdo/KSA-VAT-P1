@@ -56,7 +56,7 @@ def get_columns():
 
 def get_data(filters):
 	data = []
-
+	frappe.msgprint("inside get data")
 	# Validate if vat settings exist
 	company = filters.get("company")
 	company_currency = frappe.get_cached_value("Company", company, "default_currency")
