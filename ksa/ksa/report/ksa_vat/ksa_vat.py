@@ -56,14 +56,12 @@ def get_columns():
 
 def get_data(filters):
 	data = []
-	frappe.msgprint("inside get data")
 	# Validate if vat settings exist
 	company = filters.get("company")
 	company_currency = frappe.get_cached_value("Company", company, "default_currency")
 
 	if frappe.db.exists("KSA VAT Setting", company) is None:
 		url = get_url_to_list("KSA VAT Setting")
-		frappe.msgprint(_('Create <a href="{}">KSA VAT Setting</a> for this company').format(url))
 		return data
 
 	ksa_vat_setting = frappe.get_doc("KSA VAT Setting", company)
@@ -96,6 +94,7 @@ def get_data(filters):
 		grand_total_taxable_adjustment_amount += total_taxable_adjustment_amount
 		grand_total_tax += total_tax
 
+	
 	# Sales Grand Total
 	append_data(
 		data,
@@ -107,7 +106,7 @@ def get_data(filters):
 	)
 
 	# Blank Line
-	append_data(data, "", "", "", "", company_currency)
+	append_data(data, " ", " ", " ", " ", company_currency)
 
 	# Purchase Heading
 	append_data(data, "VAT on Purchases", "", "", "", company_currency)

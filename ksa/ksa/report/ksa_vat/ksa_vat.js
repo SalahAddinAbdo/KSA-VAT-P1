@@ -38,7 +38,7 @@ frappe.query_reports["KSA VAT"] = {
 			var $value = $(value).css("font-weight", "bold");
 			value = $value.wrap("<p></p>").parent().html();
 			return value
-		}else if (data.title=='Grand Total'){
+		}else if (data && data.title=='Grand Total'){
 			if (data.title==value) {
 				value = $(`<span>${value}</span>`);
 				var $value = $(value).css("font-weight", "bold");
