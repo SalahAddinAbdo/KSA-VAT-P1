@@ -188,7 +188,7 @@ def get_tax_data_for_each_vat_setting(vat_setting, filters, doctype):
 				total_taxable_adjustment_amount += item.net_amount
 
 			# Summing up total tax
-			total_tax += get_tax_amount(item.item_code, vat_setting.account, doctype, invoice.name)
+			total_tax += get_tax_amount(item.item_code, vat_setting.account, doctype, invoice.name, item.net_amount)
 
 	return total_taxable_amount, total_taxable_adjustment_amount, total_tax
 
@@ -206,7 +206,7 @@ def append_data(data, title, amount, adjustment_amount, vat_amount, company_curr
 	)
 
 
-def get_tax_amount(item_code, account_head, doctype, parent):
+def get_tax_amount(item_code, account_head, doctype, parent, net_amount):
 	if doctype == "Sales Invoice":
 		tax_doctype = "Sales Taxes and Charges"
 
@@ -222,9 +222,11 @@ def get_tax_amount(item_code, account_head, doctype, parent):
 	tax_amount = 0
 	if item_wise_tax_detail and len(item_wise_tax_detail) > 0:
 		item_wise_tax_detail = json.loads(item_wise_tax_detail)
+		tax_percentage=item_wise_tax_detail.get(item_code,[0,0])[0]
 		for key, value in item_wise_tax_detail.items():
 			if key == item_code:
-				tax_amount = value[1]
+				tax_amount = net_amount*tax_percentage/100
+				# tax_amount = value[1]
 				break
 
 	return tax_amount
